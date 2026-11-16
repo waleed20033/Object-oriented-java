@@ -1,0 +1,61 @@
+package lab10;
+
+import java.util.Scanner;
+
+public class CalcQuiz {
+
+	public static void main(String[] args) {
+		
+		
+		Scanner inn = new Scanner(System.in);
+		
+		System.out.print("Enter the number of quizzes:  ");
+		
+		int num = inn.nextInt();
+		double [ ] list = new double [num];
+		
+		System.out.print("Enter 7 quiz scores:  ");
+		 for (int i = 0; i <num; i++)
+		 {
+			 list[i]= inn.nextDouble();
+		 }
+		 
+		 double min = list[0];
+		 int minLoc = 0;
+		 double ave=0;
+		 double sum = 0;
+		 
+		 for (int i = 0; i < num; i++)
+		 {
+			 if (list[i]<min)
+			 {
+				 min = list[i];
+				 minLoc = i;
+			 }
+		 }
+		 
+		 for(int i = minLoc; i<num-1 ; i++)
+		 {
+			 //list[i]= 0;
+			 list [i]= list[i+1];
+			 
+		 }
+		 
+			System.out.print("\nThe counted scores:  ");
+			for (int i = 0; i < num-1; i++)
+			{
+				System.out.print(list[i]+" ");
+				sum += list[i];
+				
+			}
+			ave = sum/(num-1);
+			
+			System.out.printf("\nThe average score:  %.2f",ave);
+			
+			
+			
+			 
+
+	}
+
+}
